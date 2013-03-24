@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+fieldset {
+  padding: 1em;
+  font:80%/1 sans-serif;
+  }
+
+label {
+  float:center;
+  width:25%;
+  margin-right:1.5em;
+  padding-top:0.2em;
+  text-align:right;
+  font-weight:bold;
+  }
+
+.niceBroder {
+border-width: thin;
+
+}

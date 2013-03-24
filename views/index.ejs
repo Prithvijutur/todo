@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+
+<script>
+  $(function() {
+    $( "#dueDate" ).datepicker();
+  });
+  </script>
+
+	</head>
+
+	<body>
+
+		<h1><%= title %></h1>
+
+
+<form action="/create" method="post" accept-charset="utf-8">
+  <fieldset>
+     <legend>Create Task</legend>
+     <label>Create</label>
+     <input type="text" name="content" />
+
+     <label>Due Date</label>
+     <input id="dueDate" type="text" name="dueDate" />	
+
+     <input type='submit' value='Add' />	
+	
+   </fieldset>
+</form>
+
+
+<form method="get" accept-charset="utf-8">
+    <fieldset>
+	<legend>Pending Tasks</legend>
+
+	<% todos.forEach( function( todo ){ 
+		if(!todo.doneValue){   
+          %>
+
+           <div class="niceBroder">
+             <b> <%= todo.content %></b> due on <%= todo.updated_at %>
+	      <a href='markComplete/<%= todo.id %>'>Mark Complete</a>		     		
+           </div>
+        <%
+         }  
+         }); %>
+
+
+
+      </fieldset>
+	    	
+</form>
+
+
+<form method="get" accept-charset="utf-8">
+    <fieldset>
+	<legend>Done Tasks</legend>
+
+	<% todos.forEach( function( todo ){ 
+		if(todo.doneValue){   
+          %>
+           <div class="niceBroder">
+              <b><%= todo.content %></b> is Due on: <%= todo.updated_at %>
+	      <a href='markInComplete/<%= todo.id %>'>Mark InComplete</a>		     		
+           </div>
+        <%
+         }  
+         }); %>
+
+
+
+      </fieldset>
+
+	</body>
+</html>
+
+
+
+
